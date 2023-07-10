@@ -1,0 +1,59 @@
+.category-section{
+    width: 90%;
+    height: 600px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 20px;
+}
+.feature-table, .pricing-table{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.category-section .header{
+    background-color: black;
+    box-shadow: 10px 10px 15px 5px lightgray;
+    font-size: 0.8rem;
+    color: white;
+    z-index: 1 ;
+}
+.item-box{
+    position: relative;
+    width: 100%;
+    height: 55px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.category-container{
+    position: relative;
+    width: 100%;
+    height: 535px;
+    
+    overflow: hidden;
+    background-color: #F8F8F9;
+
+    
+}
+.category-container:hover {
+    overflow-y: scroll;
+}
+
+.deleteIcon{
+    color: #444;
+    cursor: pointer;
+}
+.deleteIcon:hover{
+    color: rgb(206, 27, 27);
+}
+.save-icon{
+    display: none;
+}

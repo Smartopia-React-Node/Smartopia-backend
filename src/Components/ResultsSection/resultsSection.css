@@ -1,0 +1,24 @@
+
+.resultsSection {
+    padding: 20px 20px;
+}
+.resultsSection::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.results{
+ 
+}
+.learn-more{
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid #FFA500;
+    color: #FFA500;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.learn-more:hover{
+    background-color: #FFA500;
+    color: #fff;
+}

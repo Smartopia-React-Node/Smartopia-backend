@@ -1,0 +1,70 @@
+.add-video-container{
+    width: 90%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 10px 10px 15px 5px lightgray;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    padding: 15px 25px 25px 25px;
+    z-index: 1;
+}
+.add-video-container .header h2{
+    flex: 1;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid whitesmoke;
+    margin-bottom: 15px;
+    margin-right: 50px;
+}
+.add-video-container .header{
+    margin-top: 15px;
+    display: flex;
+}
+.video-upload-container{
+    width: 100%;
+    height: 80%;
+    box-sizing: border-box;
+
+    display: flex;
+}
+
+
+.data-div{
+    width: 100%;
+}
+.payment-btn{
+    width: 100px;
+    height: 50px;
+}
+.payment-btn span{
+    font-size: 1rem;
+}
+.vDesc{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 120px !important;
+    box-sizing: border-box;
+    padding-top: 10px !important;
+}
+
+.v-flex-container{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.v-detaile-container{
+    display: flex;
+    width: 53%;
+    flex-direction: column;
+}
+.v-container{
+    width: 45%;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 15px;
+    overflow: hidden;
+}

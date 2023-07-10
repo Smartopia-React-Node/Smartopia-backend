@@ -1,0 +1,27 @@
+.tag{
+    height: fit-content;
+    display:block;
+    justify-content: center;
+    color: #444;
+    border:1px solid lavender;
+    margin-bottom: 10px;
+    border-radius: 45px;
+    cursor: pointer;
+    margin: 0 auto 15px auto;
+    
+}
+
+.tag p{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    padding: 5px;
+    margin-bottom: 0;
+}
+
+.onSelectTagColor{
+    color: rgba(255,255,255,.9);
+    background: linear-gradient(145deg, #ffb223 0%, #FFA500 80%);
+
+}

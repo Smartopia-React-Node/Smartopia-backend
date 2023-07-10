@@ -1,0 +1,60 @@
+.glossary-page{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(187, 225, 255, 0.1) 0%, rgba(187, 225, 255, 0.19) 100%), rgb(255, 255, 255);
+    overflow-y: scroll;
+    font-family: 'Lato', sans-serif;
+
+}
+.glossary-table-section{
+    width: 100vw;
+    height: 100vh;
+}
+.sb-container{
+    width: 100%;
+    height: fit-content;
+    margin-top: 74px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.sb-container .searchBar{
+    box-shadow: 1px 1px 15px 0px #d6f3ff;
+}
+
+.glossary-table-section{
+    width: 100%;
+    height: 90vh;
+    display: block;
+
+}
+
+.glossary-table-container{
+    box-sizing: border-box;
+    width: 80%;
+    height: fit-content;
+    padding: 15px;
+    margin: 50px auto 50px auto;
+    background-color: white;
+    box-shadow: 1px 1px 15px 0px #d6f3ff;
+}
+
+.table-outer-border{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-style: dashed;
+    border-color: lightgrey;
+    border-radius: 25px;
+    overflow-x: auto;
+}
+.glossary-searchbar{
+    margin: 20px 0;
+}
+.heading-glossary{
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 25px;
+}

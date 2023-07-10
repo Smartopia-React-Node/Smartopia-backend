@@ -1,0 +1,60 @@
+.add-too-container{
+    width: 90%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 10px 10px 15px 5px lightgray;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    padding: 15px 25px 25px 25px;
+    z-index: 1;
+}
+.add-too-container .header h2{
+    flex: 1;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid whitesmoke;
+    margin-bottom: 15px;
+    margin-right: 50px;
+}
+.add-too-container .header{
+    margin-top: 15px;
+    display: flex;
+}
+.upload-container{
+    width: 100%;
+    height: 80%;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: 58% 40%;
+    grid-column-gap: 2%;
+}
+.upload-container .left, .upload-container .right{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.data-div{
+    width: 100%;
+}
+.payment-btn{
+    width: 100px;
+    height: 50px;
+}
+.payment-btn span{
+    font-size: 1rem;
+}
+.enterTag-div{
+    display: flex;
+    align-items: center;
+    
+}
+.addtag{
+    margin-left: 15px !important;
+    width: 80px;
+    height: 40px;
+    border-radius: 15px !important;
+}

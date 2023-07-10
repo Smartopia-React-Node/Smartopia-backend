@@ -1,0 +1,18 @@
+.my-tags-box{
+    margin-right: 10px !important;
+    margin-left: 0 !important;
+    width: fit-content;
+    height: fit-content;
+    padding: 2px 15px;
+    background-color: rgb(227, 227, 227);
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    color: black;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.my-icon{
+  margin-right: 5px;
+  font-size: large;
+}

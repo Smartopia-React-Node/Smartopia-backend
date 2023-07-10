@@ -1,0 +1,81 @@
+.play-page{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(187, 225, 255, 0.1) 0%, rgba(187, 225, 255, 0.19) 100%), rgb(255, 255, 255);
+    overflow-y: scroll;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+
+.play-Section{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-y: scroll;
+}
+.pv-container{
+    margin-top: 74px;
+    width: 800px;
+    height: fit-content;
+    box-sizing: border-box;
+}
+.pv-container h1{
+    padding: 15px 15px 15px 25px;
+    text-align: center;
+}
+
+.pv-desc-contaoner{
+    margin-top: 40px;
+    width: 100%;
+    height: 350px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 1px 1px 15px 0px #d6f3ff;
+    box-sizing: border-box;
+    padding: 15px;
+    margin-bottom: 100px;
+}
+.pv-desc{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border-style: dashed;
+    border-color: lightgrey;
+    padding: 15px;
+    overflow-y: scroll;
+}
+.pv-desc::-webkit-scrollbar{
+    display: none;
+}
+
+.pv-desc h3{
+    color: gray;
+    box-sizing: border-box;
+    display: block;
+    padding-left: 30px;
+    padding-bottom: 5px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.pv-desc textarea{
+    margin-top: 15px;
+    max-width: 100%;
+    min-width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+}
+.footerx{
+    width: 100vh;
+    height: 50px;
+    background-color: black;
+}

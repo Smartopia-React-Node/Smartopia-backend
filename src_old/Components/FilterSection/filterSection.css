@@ -1,0 +1,32 @@
+.filterSection{
+   
+}
+
+.tags_container_one{ 
+    
+}
+
+.tags_container_1, .tags_container_2, .tags_container_3{
+   padding: 0 15px;
+}
+.tags_container_2 .tag{
+    background-color: #E5DCC3;
+}
+.tags_container_3 .tag{
+    background-color: whitesmoke;
+}
+.tags_container_3{
+ 
+}
+.filter-maindiv{
+   
+    background-color: #fbfbfb;
+}
+.filter-maindiv h3{
+    margin-bottom: 20px;
+    text-align: center;
+    background: #6c6c6c;
+    color: #fff;
+    padding: 7px 0;
+    font-size: 24px;
+}

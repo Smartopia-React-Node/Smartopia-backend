@@ -1,0 +1,241 @@
+
+
+.left-login{
+    height: calc(100vh - 70px);
+    overflow: auto;
+}
+.registerPage{
+    /* width: 100vw;*/
+    height: 100vh; 
+    background: #FFefc9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.registerHeader{
+    margin: 0 auto 20px auto;
+}
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+}
+.headerContainer img{
+    width: 30px;
+    height: 30px;
+}
+.headerContainer h1{
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #000;
+}
+.registerHeader a:hover{
+    text-decoration: none;
+}
+.registerForm{
+    background-image: url("../../images/card_bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 35%;
+   width: 80%;
+    height: fit-content;
+    position: relative;
+    background-color: white;
+    margin: 0 auto 0 auto;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 15px 0px #d6f3ff;
+    background-color: none;
+    border: 1px solid #FFA500;
+}
+
+.registerForm h1{
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.mar-control-other{
+    margin-top: 70px !important;
+}
+.main{
+    width: 30vw !important;
+    height: fit-content;
+    position: relative;
+}
+.data-div{
+    width: 30vw;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+.name-container{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+.fname{
+    width: 40%;
+}
+.lname{
+    width: 58%;
+    margin-left: 2%;
+}
+.fname, .lname{
+    margin-top: 0 !important;
+}
+.data-div input{
+    margin-top: 2vh;
+    color: #444;
+    border: 1px solid rgb(241 241 241);
+    border-radius: 4px;
+    height: 48px;
+    font-size: 1rem;
+    padding: 0px 12px;
+    background: rgb(250, 250, 250);
+    font-family: 'Lato', sans-serif;
+
+}
+.data-div input:focus{
+    outline: none;
+}
+
+p .login{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color:  rgb(12, 123, 235);
+
+    
+}
+.login-line{
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.login-line p{
+    display: inline-block;
+    text-align: center;
+}
+p a{
+    text-decoration: none !important;
+}
+.btn-container{
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto 0 auto;
+}
+.payment-btn{
+    padding: 10px 20px 10px 20px !important;
+    background-image: linear-gradient(
+        90deg,hsla(0,0%,100%,.19),hsla(0,0%,100%,0) 49.71%);
+    border: 0 !important;
+    border-radius: 20px !important;
+    margin: 0 !important;
+    text-transform: none !important;
+    outline: none !important;
+}
+.payment-btn span{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+.techiai-img img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+.techiai-img h2 {
+    font-size: 18px;
+    margin: 10px 0 10px 0;
+}
+.techiai-img {
+    border-bottom: 5px solid #FFA500;
+    margin-bottom: 30px;
+    padding: 15px !important;
+}
+.log-header{
+    text-align: center;
+    margin: 20px 0 30px 0;
+    width: 100%;
+}
+.techiai-img p {
+    font-size: 13px;
+    color: #bbb5b5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden
+}
+
+@media screen and (max-width: 1100px) {
+    .registerForm{
+        width: 80vw;
+
+    }
+    .registerForm h1{
+        font-size: 2rem;
+    }
+    .registerForm img{
+        width: 15%;
+        height: 20%;
+        top: 15px;
+    }
+    .data-div{
+        width: 60vw;
+    }
+    .data-div input{
+        margin-top: 2vh;
+        height: 5vh;
+        font-size: 1rem;
+        padding: 0px 12px;
+    }
+    
+
+}
+
+@media screen and (max-width: 700px) {
+    .registerForm{
+        background-size: 100% 30%;
+    }
+    .registerForm h1{
+        font-size: 1.6rem;
+    }
+    .data-div input{
+        font-size: 0.9rem;
+
+    }
+    .login-line p{
+        font-size: 1rem;
+    }
+    .btn-container{
+        margin: 10px auto 10px auto;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .registerForm{
+        background-size: 100% 25%;
+    }
+    .registerForm h1{
+        font-size: 1.5rem;
+    }
+    .data-div input{
+        font-size: 0.8rem;
+
+    }
+    .login-line p{
+        font-size: 0.8rem;
+    }
+
+}
