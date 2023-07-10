@@ -1,14 +1,17 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const GlossarySchema = new mongoose.Schema({
+const GlossarySchema = new mongoose.Schema(
+  {
     term: {
-        type: String,
-        default: ""
+      type: String,
+      required: true,
     },
     desc: {
-        type: String,
-        default: ""
-    }
-},  { timestamps: true })
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Glossary", GlossarySchema);
