@@ -13,7 +13,6 @@ router.get("/all", async (req, res)=>{
 }); 
 
 //isAdmin User
-
 router.get("/admin", async (req, res) => {
    try {
       const isAdmin = req.query.isAdmin;
@@ -25,6 +24,7 @@ router.get("/admin", async (req, res) => {
      res.status(500).json(err);
    }
  });
+
 //Delete USER
 router.delete("/delete/:id", async (req, res) => {
    try {
@@ -36,7 +36,7 @@ router.delete("/delete/:id", async (req, res) => {
    }
  });
 
-//  //TOOL LIKE
+ //TOOL LIKE
 // router.get("/:id/like", async (req, res) => {
 //    try {
 //       let likeNum=9;
@@ -48,5 +48,44 @@ router.delete("/delete/:id", async (req, res) => {
 //      res.status(500).json(err);
 //    }
 //  });
+
+// LIKE
+router.put("/like/:id", async (req, res) => {
+   const UserID = req.params.id;
+   const toolID = req.body.toolID;
+   try {
+      const result = await User.findByIdAndUpdate(UserID, {$addToSet:{likedProduct:toolID}}, {new: true});
+      console.log(result);
+      res.status(200).send(result);
+   } catch (error) {
+      console.log(error);
+   }
+});
+
+// UNLIKE
+router.put("/unlike/:id", async (req, res) => {
+   const UserID = req.params.id;
+   const toolID = req.body.toolID;
+   try {
+      const result = await User.findByIdAndUpdate(UserID, {$pull:{likedProduct:toolID}}, {new: true});
+      console.log(result);
+      res.status(200).send(result);
+   } catch (error) {
+      console.log(error);
+   }
+});
+
+// GET ALL LIKE
+router.get("/like/all/:id", async(req, res) => {
+   const UserID = req.params.id;
+   try{
+      const result = await User.findOne({_id:UserID}, {likedProduct:1, _id:0});
+      console.log(result);
+      res.status(200).send(result);
+   }
+   catch (err){
+      console.log(err);
+   }
+});
 
 module.exports = router;
