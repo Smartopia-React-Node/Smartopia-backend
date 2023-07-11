@@ -28,7 +28,7 @@ const allBanner = require("../models/allbanner");
       try {
         const result = await Banner.findByIdAndUpdate("64761b5db9b5a9206e879783", {
           $set: req.body,
-        });
+        }, {new: true});
         // adds text to AllBanners
         const newBanner = new allBanner(req.body);
         await newBanner.save();
@@ -44,7 +44,7 @@ router.put("/use/:id", async (req, res) => {
    try {
       const banner = await allBanner.findOne({_id: textID},{text:1, _id:0});
       const result = await Banner.findByIdAndUpdate("64761b5db9b5a9206e879783", 
-         banner
+         banner , {new: true}
       )
       res.status(200).json(result);
    } catch (error) {
