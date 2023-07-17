@@ -1,6 +1,8 @@
 const router = require("express").Router();
+const tool = require("../models/tool");
 const Tutorial = require("../models/tutorial")
 const fetch = require("node-fetch");
+
 
 //GET video DETAILS OF TUTORIAL
 const video_details_API_call = async (id)=>{
@@ -48,5 +50,23 @@ router.delete("/delete/:id", async (req, res) => {
      res.status(500).json(err);
    }
  });
+ 
+//CHANGE FREE->PAID (VICE VERSA)
+router.put("/edit/:id", async(req, res) => {
+   try {
+      const tutorial = await Tutorial.findById(req.params.id);
+      const videoType = tutorial.videoType;
+      if(videoType=="Free") {
+         await tutorial.updateOne({$set: {videoType: "Paid"}});
+         res.status(200).json("Changed to Paid");
+      }
+      else {
+         await tutorial.updateOne({$set: {videoType: "Free"}});
+         res.status(200).json("Changed to Free");
+      }
+   } catch (err) {
+      res.status(500),json(err);
+   }
+});
 
 module.exports = router;

@@ -90,11 +90,6 @@ router.delete("/delete/:id", async (req, res) => {
    }
  });
 
-
-
-
- 
-
 // LIKE
 router.put("/like/:id", async (req, res) => {
    const UserID = req.params.id;
