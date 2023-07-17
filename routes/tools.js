@@ -46,6 +46,23 @@ router.delete("/delete/:id", async (req, res) => {
    }
  });
 
+//search tool
+router.get("/search/:toolName", async (req, res) => {
+  const searchToolName = req.params.toolName;
+
+  try {
+    const tools = await Tool.find({
+      toolName: { $regex: searchToolName, $options: "i" },
+    });
+    res.status(200).json(tools);
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: "An error occurred while searching for tools." });
+  }
+});
+
 
  //TOOL LIKE
 router.put("/:id/like", async (req, res) => {
