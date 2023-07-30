@@ -1,32 +1,32 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
-const User = require("../models/user")
+const User = require("../models/user");
 const Tool = require("../models/tool");
 
 //ALL User
-router.get("/all", async (req, res)=>{
-   try{
-      const users = await User.find();
-      res.status(200).json(users);
-   }catch(err) {
-      console.log(err);
-   }
-}); 
+router.get("/all", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 //isAdmin User
 
 router.get("/admin", async (req, res) => {
-   try {
-      const isAdmin = req.query.isAdmin;
-      const filters={isAdmin: "true"}
-     const users = await User.find(filters); // Apply the filters to the find() method
- 
-     res.status(200).json({users});
-   } catch (err) {
-     res.status(500).json(err);
-   }
- });
- //saved videos
+  try {
+    const isAdmin = req.query.isAdmin;
+    const filters = { isAdmin: "true" };
+    const users = await User.find(filters); // Apply the filters to the find() method
+
+    res.status(200).json({ users });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+//saved videos
 router.get("/save/:id", async (req, res) => {
   try {
     //  const {select}= req.query;
@@ -37,7 +37,7 @@ router.get("/save/:id", async (req, res) => {
   }
 });
 
- //all saved videos
+//all saved videos
 router.get("/allsave", async (req, res) => {
   try {
     //  const {select}= req.query;
@@ -49,7 +49,7 @@ router.get("/allsave", async (req, res) => {
 });
 
 //save videos
- router.post("/saveProducts/:id", async (req, res) => {
+router.post("/saveProducts/:id", async (req, res) => {
   try {
     const userId = req.params.id;
     const { saveProduct } = req.body;
@@ -62,10 +62,9 @@ router.get("/allsave", async (req, res) => {
   }
 });
 
-
- //unsave videos
-router.delete("/unsave/:id", async(req,res)=>{
-  try{
+//unsave videos
+router.delete("/unsave/:id", async (req, res) => {
+  try {
     const userId = req.params.id;
     const { saveProduct } = req.body;
 
@@ -74,62 +73,71 @@ router.delete("/unsave/:id", async(req,res)=>{
       userId,
       { $pull: { saveProduct: saveProduct } },
       { new: true }
-    )
+    );
     res.json(user);
-  }catch(err){
+  } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 //Delete USER
 router.delete("/delete/:id", async (req, res) => {
-   try {
-      const user = await User.findById(req.params.id);
-      await user.deleteOne();
-      res.status(200).json("the user has been deleted");
-   } catch (err) {
-     res.status(500).json(err);
-   }
- });
+  try {
+    const user = await User.findById(req.params.id);
+    await user.deleteOne();
+    res.status(200).json("the user has been deleted");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // LIKE
 router.put("/like/:id", async (req, res) => {
-   const UserID = req.params.id;
-   const toolID = req.body.toolID;
-   try {
-      const result = await User.findByIdAndUpdate(UserID, {$addToSet:{likedProduct:toolID}}, {new: true});
-      console.log(result);
-      res.status(200).send(result);
-   } catch (error) {
-      console.log(error);
-   }
+  const UserID = req.params.id;
+  const toolID = req.body.toolID;
+  try {
+    const result = await User.findByIdAndUpdate(
+      UserID,
+      { $addToSet: { likedProduct: toolID } },
+      { new: true }
+    );
+    console.log(result);
+    res.status(200).send(result);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // UNLIKE
 router.put("/unlike/:id", async (req, res) => {
-   const UserID = req.params.id;
-   const toolID = req.body.toolID;
-   try {
-      const result = await User.findByIdAndUpdate(UserID, {$pull:{likedProduct:toolID}}, {new: true});
-      console.log(result);
-      res.status(200).send(result);
-   } catch (error) {
-      console.log(error);
-   }
+  const UserID = req.params.id;
+  const toolID = req.body.toolID;
+  try {
+    const result = await User.findByIdAndUpdate(
+      UserID,
+      { $pull: { likedProduct: toolID } },
+      { new: true }
+    );
+    console.log(result);
+    res.status(200).send(result);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // GET ALL LIKE
-router.get("/like/all/:id", async(req, res) => {
-   const UserID = req.params.id;
-   try{
-      const result = await User.findOne({_id:UserID}, {likedProduct:1, _id:0});
-      console.log(result);
-      res.status(200).send(result);
-   }
-   catch (err){
-      console.log(err);
-   }
+router.get("/like/all/:id", async (req, res) => {
+  const UserID = req.params.id;
+  try {
+    const result = await User.findOne(
+      { _id: UserID },
+      { likedProduct: 1, _id: 0 }
+    );
+    console.log(result);
+    res.status(200).send(result);
+  } catch (err) {
+    console.log(err);
+  }
 });
-
 
 // // GET all custom tools for a user
 // router.get("/:id/customTools", async (req, res) => {
@@ -137,7 +145,7 @@ router.get("/like/all/:id", async(req, res) => {
 //     const userId = req.params.id;
 //     const user = await User.findById(userId).populate("customTool.toolId", "fname toolName priceModel");
 //     if (!user) {
-//       return res.json([]); 
+//       return res.json([]);
 //     }
 //     const customTools = user.customTool.map((customTool) => {
 //       return {
@@ -153,8 +161,6 @@ router.get("/like/all/:id", async(req, res) => {
 //     res.status(400).json({ error: err.message });
 //   }
 // });
-
-
 
 // // POST a new custom tool for a user
 // router.post("/:id/customTools", async (req, res) => {
@@ -197,15 +203,13 @@ router.get("/like/all/:id", async(req, res) => {
 //   }
 // });
 
-
-
 // // DELETE a custom tool for a user
 // router.delete("/customTools/:id", (req, res) => {
 //   const userId = req.params.id;
-//   const customToolId = req.body.customToolId; 
+//   const customToolId = req.body.customToolId;
 //   User.findByIdAndUpdate(
 //     userId,
-//     { $pull: { customTool: { _id: customToolId } } }, 
+//     { $pull: { customTool: { _id: customToolId } } },
 //     { new: true }
 //   )
 //     .then((updatedUser) => {
@@ -219,12 +223,16 @@ router.get("/customCollections/:collectionName", async (req, res) => {
   const { collectionName } = req.params;
 
   try {
-    const user = await User.findOne({ "customCollection.collectionName": collectionName });
+    const user = await User.findOne({
+      "customCollection.collectionName": collectionName,
+    });
     if (!user) {
       return res.status(404).json({ message: "Custom collection not found" });
     }
-    
-    const customCollection = user.customCollection.find(item => item.collectionName === collectionName);
+
+    const customCollection = user.customCollection.find(
+      (item) => item.collectionName === collectionName
+    );
     return res.status(200).json(customCollection);
   } catch (err) {
     console.error("Error fetching custom collection:", err);
@@ -233,15 +241,23 @@ router.get("/customCollections/:collectionName", async (req, res) => {
 });
 
 router.post("/customCollections/:userId", async (req, res) => {
-  const { collectionName, saveTools } = req.body;
+  const { collectionName, saveTools, saveVideos } = req.body; // Include saveVideos in the request body
   const { userId } = req.params;
 
   try {
-    const existingCollection = await User.findOne({ _id: userId, "customCollection.collectionName": collectionName });
+    const existingCollection = await User.findOne({
+      _id: userId,
+      "customCollection.collectionName": collectionName,
+    });
     if (existingCollection) {
-      return res.status(400).json({ message: "Collection with this name already exists for the user" });
+      return res
+        .status(400)
+        .json({
+          message: "Collection with this name already exists for the user",
+        });
     }
-    const newCustomCollection = { collectionName, saveTools };
+    const newCustomCollection = { collectionName, saveTools, saveVideos };
+
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -257,13 +273,46 @@ router.post("/customCollections/:userId", async (req, res) => {
   }
 });
 
+router.patch("/customCollections/:userId/:collectionId", async (req, res) => {
+  const { collectionId, userId } = req.params;
+  const { saveTools, saveVideos } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const customCollection = user.customCollection.find(
+      (item) => item._id.toString() === collectionId
+    );
+    if (!customCollection) {
+      return res.status(404).json({ message: "Custom collection not found" });
+    }
+
+    // Update the custom collection fields
+    if (saveTools) {
+      customCollection.saveTools = saveTools;
+    }
+    if (saveVideos) {
+      customCollection.saveVideos = saveVideos;
+    }
+
+    await user.save();
+
+    return res.status(200).json(customCollection);
+  } catch (err) {
+    console.error("Error updating custom collection:", err);
+    return res.status(500).json({ message: "Server Error" });
+  }
+});
 
 //  //TOOL LIKE
 // router.get("/:id/like", async (req, res) => {
 //    try {
 //       let likeNum=9;
 //       const tool = await Tool.findById(req.params.id);
-//       likeNum = tool.like+1 
+//       likeNum = tool.like+1
 //       await tool.updateOne({ $push: { likes: 7} });
 //       res.status(200).json({l:tool.like});
 //    } catch (err) {

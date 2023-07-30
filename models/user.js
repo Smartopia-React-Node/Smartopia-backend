@@ -80,6 +80,10 @@ const UserSchema = new mongoose.Schema(
             type: Array,
             default: [],
           },
+          saveVideos: {
+            type: Array,
+            default: [],
+          },
         },
       ],
     },
